@@ -50,7 +50,10 @@ class Immod_Instant_Maintenance_Mode {
     public function settings_init() {
         register_setting(
         'immod_instant_maintenance_mode', 
-        'immod_settings'
+        'immod_settings',
+        array(
+                'sanitize_callback' => array($this, 'sanitize_settings')
+            )
         );
 
 
@@ -88,6 +91,26 @@ class Immod_Instant_Maintenance_Mode {
 
     }
 
+     // Sanitize settings callback
+    public function sanitize_settings($input) {
+        $sanitized_input = array();
+        
+        // Sanitize enable checkbox
+        $sanitized_input['enable'] = isset($input['enable']) ? 1 : 0;
+        
+        // Sanitize logo URL
+        
+        if (isset($input['logo'])) {
+            $sanitized_input['logo'] = esc_url_raw($input['logo']);
+        }
+        
+        // Sanitize message
+        if (isset($input['message'])) {
+            $sanitized_input['message'] = sanitize_textarea_field($input['message']);
+        }
+        
+        return $sanitized_input;
+    }
     // Section callback
     public function section_callback() {
         echo esc_html__('Configure your maintenance mode settings below.', 'instant-maintenance-mode');

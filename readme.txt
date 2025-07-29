@@ -40,9 +40,6 @@ Yes, any user with 'manage_options' capability (typically administrators) can st
 = Can I customize the maintenance page? =
 Yes! You can upload a logo, set custom text.
 
-= Will this affect search engine rankings? =
-The plugin returns a 503 (Service Unavailable) status code which tells search engines to come back later. This is the proper way to handle temporary maintenance.
-
 == Screenshots ==
 1. Plugin settings page with configuration options
 2. Maintenance mode preview showing logo and custom message
@@ -53,7 +50,5 @@ The plugin returns a 503 (Service Unavailable) status code which tells search en
 * Initial release with basic maintenance mode functionality
 
 == Additional Information ==
-
-For support, feature requests, or to report issues, please visit [plugin support page](https://example.com/support).
 
 Developers can contribute on [GitHub](https://github.com/qasimmizbah/instant-maintenance-mode).
